@@ -1,27 +1,57 @@
 import React from 'react'
 import Title from '../components/Title'
 import { assets } from '../assets/assets/frontend_assets/assets'
-import NewsLetter from '../components/NewsLetter'
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa'
 
 const Contact = () => {
   return (
-    <div>
-      <div className='text-center text-2xl pt-10 border-t'>
-        <Title text1={'CONTACT'} text2={'US'}/>
+    <div className="bg-gray-50 py-16 px-6 md:px-16">
+      {/* Page Title */}
+      <div className="text-center">
+        <Title text1="CONTACT" text2="US" />
       </div>
-      <div className='my-10 flex flex-col justify-center md:flex-row gap-10 mb-28'>
-        <img className='w-full md:max-w-[480px]' src={assets.contact_img} alt="" />
-        <div className='flex flex-col justify-center  items-start gap-6'>
-          <p className='font-semibold text-xl text-gray-600'>Our Store</p>
-          <p className='text-gray-500'>block 8A <br /> Meridian Park Estate, Ajah Lagos, Nigeria</p>
-          <p className='text-gray-500'>Tel: +234-70-312-154-24 <br /> Email: forev@gmail.com</p>
-          <p className='font-semibold text-xl text-gray-600'>Careers nat Forever</p>
-          <p className='text-gray-500'>Learn more about our teams and job openings.</p>
-          <button className='border border-black px-8 py-4 text-sm hover:bg-black hover:text-white transition-all duration-500'>Explore Jobs</button>
+
+      {/* Contact Section */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-12 items-center">
+        {/* Image */}
+        <img className="w-full max-w-[500px] mx-auto rounded-lg shadow-lg" src={assets.contact_img} alt="Contact" />
+
+        {/* Contact Details */}
+        <div className="flex flex-col gap-6 bg-white p-6 rounded-lg shadow-lg">
+          <h2 className="text-2xl font-semibold text-gray-800">Our Store</h2>
+          <p className="text-gray-600">Feel free to reach out to us at our store or contact us anytime.</p>
+
+          <div className="space-y-4">
+            {/* Address */}
+            <div className="flex items-center gap-4">
+              <FaMapMarkerAlt className="text-red-500 text-xl" />
+              <p className="text-gray-700">
+                Bol, Addis Ababa, Ethopia 
+              </p>
+            </div>
+
+            {/* Phone */}
+            <div className="flex items-center gap-4">
+              <FaPhoneAlt className="text-green-500 text-xl" />
+              <p className="text-gray-700">+251-90-312-340</p>
+            </div>
+
+            {/* Email */}
+            <div className="flex items-center gap-4">
+              <FaEnvelope className="text-blue-500 text-xl" />
+              <p className="text-gray-700">biruktawitaberaa@gmail.com</p>
+            </div>
+          </div>
+
+          {/* Button */}
+          <button className="bg-gradient-to-r from-red-500 to-orange-500 text-white px-6 py-2 rounded-lg mt-4 hover:scale-105 transition-transform">
+            Get in Touch
+          </button>
         </div>
       </div>
 
-      <NewsLetter/>
+      {/* Newsletter */}
+
     </div>
   )
 }

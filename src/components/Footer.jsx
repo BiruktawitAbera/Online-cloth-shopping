@@ -1,39 +1,60 @@
-import React from 'react'
-import { assets } from '../assets/assets/frontend_assets/assets'
+import React from "react";
+import { assets } from "../assets/assets/frontend_assets/assets";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div>
-        <div className='flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm'>
-            <div>
-                <img src={assets.logo} className='mb-5 w-32' alt="" />
-                <p className='w-full md:w-2/3 text-gray-600'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum impedit earum consequatur aliquam ex? Illum, voluptatum!</p>
-            </div>
-            <div>
-                <p className='text-xl font-medium mb-5'>COMPANY</p>
-                <ul className='flex flex-col gap-1 text-gray-600'>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Delivery</li>
-                    <li>Privacy Policy</li>
-                </ul>
-            </div>
-
-            <div>
-                <p className='text-xl font-medium mb-5'>GET IN TOUCH</p>
-                <ul className='flex flex-col gap-1 text-gray-600'>
-                    <li>+234 80 1313 1313</li>
-                    <li>sathoanoamen@gmail.com</li>
-                </ul>
-            </div>
+    <footer className="bg-gray-100 text-gray-700 py-10 px-6 sm:px-20">
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center sm:items-start">
+        {/* Logo and Description */}
+        <div className="text-center sm:text-left">
+          <img src={assets.logo} className="w-20 h-20 rounded-full mx-auto sm:mx-0" alt="Logo" />
+          <p className="mt-4 text-sm text-gray-600 max-w-md">
+            Explore the best collections and discover high-quality products tailored for you.  
+            Shop with confidence and enhance your experience today.
+          </p>
         </div>
 
-        <div>
-            <hr />
-            <p className='py-5 text-sm text-center'>Copyright 2024@ - All Right Reserved.</p>
+        {/* Quick Links */}
+        <div className="mt-6 sm:mt-0 text-center sm:text-left">
+          <h2 className="text-lg font-semibold text-gray-900">Quick Links</h2>
+          <ul className="mt-2 space-y-2">
+            {["Home", "Collection", "About", "Contact"].map((item, index) => (
+              <li key={index}>
+                <Link
+                  to={`/${item.toLowerCase()}`}
+                  className="hover:text-[#FF6F61] transition-all text-gray-700"
+                >
+                  {item}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
-    </div>
-  )
-}
 
-export default Footer
+        {/* Social Media Links */}
+        <div className="mt-6 sm:mt-0 text-center sm:text-left">
+          <h2 className="text-lg font-semibold text-gray-900">Follow Us</h2>
+          <div className="flex justify-center sm:justify-start mt-2 gap-4">
+            {["facebook", "instagram", "twitter"].map((platform, index) => (
+              <a key={index} href={`https://${platform}.com`} target="_blank" rel="noopener noreferrer">
+                <img
+                  src={assets[`${platform}_icon`]}
+                  className="w-6 transition-all hover:scale-110 hover:opacity-80"
+                  alt={platform}
+                />
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Copyright */}
+      <div className="border-t border-gray-300 mt-8 pt-4 text-center text-xs text-gray-500">
+        © {new Date().getFullYear()} Your Brand. All Rights Reserved.
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
